@@ -2,6 +2,9 @@ st - simple terminal
 --------------------
 st is a simple terminal emulator for X which sucks less.
 
+*my own fork which contains some kind of extra customization*
++ monokai terminal color scheme (thanks to (terminal.sexy)[https://github.com/stayradiated/terminal.sexy])
+
 
 Requirements
 ------------
