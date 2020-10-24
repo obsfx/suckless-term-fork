@@ -2,7 +2,7 @@ st - simple terminal
 --------------------
 st is a simple terminal emulator for X which sucks less.
 
-*my own fork which contains some customization*
+*my own fork which contains some customization, here is the main repo https://git.suckless.org/st/file/README.html*
 + monokai terminal color scheme (thanks to [terminal.sexy](https://github.com/stayradiated/terminal.sexy))
 + scrollback patch (shift + (pageup/pagedown)) [scrollback](https://st.suckless.org/patches/scrollback/)
 + boxdraw patch [boxdraw](https://st.suckless.org/patches/boxdraw/)
