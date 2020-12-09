@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Iosevka SS12:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -68,18 +68,6 @@ static unsigned int blinktimeout = 800;
 static unsigned int cursorthickness = 2;
 
 /*
- * 1: render most of the lines/blocks characters without using the font for
- *    perfect alignment between cells (U2500 - U259F except dashes/diagonals).
- *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
- * 0: disable (render all U25XX glyphs normally from the font).
- */
-const int boxdraw = 0;
-const int boxdraw_bold = 0;
-
-/* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 0;
-
-/*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
@@ -105,52 +93,44 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* ------------------------------ */
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
+	/* 8 normal colors */
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"blue2",
+	"magenta3",
+	"cyan3",
+	"gray90",
 
-  /* 8 normal colors */
-  [0] = "#272822", /* black   */
-  [1] = "#f92672", /* red     */
-  [2] = "#a6e22e", /* green   */
-  [3] = "#f4bf75", /* yellow  */
-  [4] = "#66d9ef", /* blue    */
-  [5] = "#ae81ff", /* magenta */
-  [6] = "#a1efe4", /* cyan    */
-  [7] = "#f8f8f2", /* white   */
+	/* 8 bright colors */
+	"gray50",
+	"red",
+	"green",
+	"yellow",
+	"#5c5cff",
+	"magenta",
+	"cyan",
+	"white",
 
-  /* 8 bright colors */
-  [8]  = "#75715e", /* black   */
-  [9]  = "#f92672", /* red     */
-  [10] = "#a6e22e", /* green   */
-  [11] = "#f4bf75", /* yellow  */
-  [12] = "#66d9ef", /* blue    */
-  [13] = "#ae81ff", /* magenta */
-  [14] = "#a1efe4", /* cyan    */
-  [15] = "#f9f8f5", /* white   */
+	[255] = 0,
 
-  /* special colors */
-  [256] = "#272822", /* background */
-  [257] = "#f8f8f2", /* foreground */
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#cccccc",
+	"#555555",
 };
+
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor
+ * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs = 257;
+unsigned int defaultfg = 7;
+unsigned int defaultbg = 0;
+static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
-
-/*
- * Colors used, when the specific fg == defaultfg. So in reverse mode this
- * will reverse too. Another logic would only make the simple feature too
- * complex.
- */
-static unsigned int defaultitalic = 7;
-static unsigned int defaultunderline = 7;
-/* ------------------------------ */
 
 /*
  * Default shape of cursor
@@ -219,8 +199,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*

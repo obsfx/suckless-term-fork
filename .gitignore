@@ -1,0 +1,7 @@
+*.o
+boxdraw_data.h
+config.h
+st
+*.orig
+*.rej
+*.diff
