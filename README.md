@@ -3,10 +3,9 @@ st - simple terminal
 st is a simple terminal emulator for X which sucks less.
 
 *my own fork which contains some customization, here is the main repo https://git.suckless.org/st/file/README.html*
-+ dark color scheme (thanks to [terminal.sexy](https://github.com/stayradiated/terminal.sexy))
++ kitty mathias theme ([https://github.com/dexpota/kitty-themes/blob/master/themes/Mathias.conf](https://github.com/dexpota/kitty-themes/blob/master/themes/Mathias.conf))
 + scrollback patch (shift + (pageup/pagedown)) [scrollback](https://st.suckless.org/patches/scrollback/)
 + boxdraw patch [boxdraw](https://st.suckless.org/patches/boxdraw/)
-
 
 Requirements
 ------------
